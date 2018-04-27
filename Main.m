@@ -6,6 +6,7 @@ close all
 clc
 warning off
 global GLO
+
 %% settings
 GLO.Base   = 100;   % baseMVA
 GLO.w0     = 1;     % nominal frequency, p.u.
@@ -24,6 +25,7 @@ TimeRange3 = [TimeRange2(2),TotalTime]; % post-fault simulation time
 MPC2 = MPC
 MPC2.GEN(2,3)=100;
 [mpc3 SUCESS]     = runpf(MPC2);
+
 %% ReadDynamicData
 GLO.H    = [90 45 90 54]';
 GLO.Xd   = [0.2 0.2 0.2 0.2]';
@@ -32,6 +34,7 @@ GLO.Xqp  = [0.0333 0.0333 0.0333 0.0333]';
 GLO.Ra   = [0 0 0 0]';
 % GLO.D    = [45 45 45 45]';
 GLO.D    = [0 0 0 0]';
+
 %% Initialization
 GenIdx       = [1 2 3 4];
 LoadIdx      = [7 9];
